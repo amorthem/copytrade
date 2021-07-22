@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script> -->
+
+<script src="assets/js/abi.js"></script>
+<link rel="icon" type="image/png" href="assets/img/headEN.png"/>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<title>Cactus Game - Coin Flips</title>
+</head>
+<body>
+  <div class="divClaim"></div>
+  <br>
+  <div class="d-flex justify-content-between">
+    <div>
+      <small class="text-white">&nbsp;CAC :</small><button id='div-balance' class="btn btn-dark btn-sm text-success"></button> 
+      <button class="btn btn-success btn-sm" onclick="window.location.reload();"><i class="fas fa-sync-alt"></i></button>
+    </div>
+    
+    <div>
+      <span id="textAccount" class="text-white">Acc.</span> : <small id='wlletAccount'><button class="btn btn-success btn-sm" onclick="onClickConnect();">Connect Metamask</button></small>
+    </div>
+  </div>
+      <div class="container">
+        <div class="row"></div>
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <div class='coin-flip'>
+              <!-- The tail starts out hidden; we don't want to wait until CSS rule evaluation to hide this image -->
+              <div id='coin-tails' style='display:none'>
+                <img src='./assets/img/tailTH.png' id="imgCoinFlipsT" width="140">
+              </div>
+              <div id='coin-heads'>
+                <img src='./assets/img/headTH.png' id="imgCoinFlipsH" width="140">
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-12" id='controls'>
+            <br>
+              <!-- ============================== -->
+              <div class="text-white">
+                <br><br>
+                <hr>
+                <span id='div-result'></span>
+                <div class="text-white">
+                  <span id="textPrize">Prize</span> : <span id='div-reward' class="text-warning">0</span> CAC
+                  <a class="btn btn-outline-warning btn-sm" id="btnClaimReward" onclick="claimReward()">Claim</a>
+                </div>
+                <hr>
+                <!-- Button Unlock to play -->
+                <button class="btn btn-warning btn-lg" onclick="addAllowance()" id="iconLock"><i class="fas fa-lock"></i> Unlock to play game.</button>
+                <!-- section game control code start -->
+                <section id="gameControl" style="display: none;">
+                  <p>Bet CAC <input id="inputMoney" type="number" style="width: 125px;" value="100"></p>
+                  <p>
+                    <a class="btn btn-warning btn-sm" onclick="resetBetting();">0</a>
+                    <a class="btn btn-success btn-sm" onclick="addBetting(100);">+100</a>
+                    <a class="btn btn-success btn-sm" onclick="addBetting(1000);">+1000</a>
+                    <a class="btn btn-success btn-sm" onclick="addBetting(10000);">+10000</a>
+                  </p>
+                  <p>
+                    <a class="btn btn-warning btn-sm" onclick="resetBetting();">0</a>
+                    <a class="btn btn-danger btn-sm" onclick="addBetting(-100);">-100</a>
+                    <a class="btn btn-danger btn-sm" onclick="addBetting(-1000);">-1000</a>
+                    <a class="btn btn-danger btn-sm" onclick="addBetting(-10000);">-10000</a>
+                  <div>
+                    <!-- <button class="btn btn-primary" id='btn-heads' onclick="flip('heads')">< Heads</button>
+                    <button class="btn btn-danger" id='btn-tails' onclick="flip('tails')">Tails ></button> -->
+                    <!--
+                      <img src='./assets/img/headTH.png' width="100" id='btn-heads' onclick="flip('heads')" style="cursor: pointer;">
+                      <img src='./assets/img/tailTH.png' width="100" id='btn-tails' onclick="flip('tails')" style="cursor: pointer;">
+                    -->
+                    <img src='./assets/img/headTH.png' width="100" id='btn-heads' onclick="playerBet('heads')" style="cursor: pointer;">
+                    <img src='./assets/img/tailTH.png' width="100" id='btn-tails' onclick="playerBet('tails')" style="cursor: pointer;">
+                  </div>
+                  </div>
+                 </section>
+                 <h1 class="text-warning" id="waitBetting">กรุณารอสักครู่....</h1>
+                <!-- section game control code end -->
+                <hr>
+               
+              
+              <span id='div-debuginfo'></span>
+              <div class="d-flex justify-content-center">
+                <a href="https://cactusswap.finance/" class="btn btn-primary btn-sm" style="margin-right: 25px;"><i class="fas fa-home"></i> Home</a>
+                <div>
+                  <span class="btn btn-info btn-sm" id="btnLangTH">TH</span>
+                  <span class="btn btn-outline-info btn-sm" id="btnLangEN">EN</span>
+                </div>
+              </div>
+              <br>
+            <!-- ============================== -->
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+      <script src="assets/js/web3Provider.js"></script>
+      <script src="assets/js/coinflip.js"></script>
+      <script src="assets/js/translation/TH.js"></script>
+      <script src="assets/js/translation/EN.js"></script>
+      <script src="assets/js/translation/index.js"></script>
+      
+</body>
+</html>
