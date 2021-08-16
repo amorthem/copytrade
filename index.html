@@ -13,107 +13,185 @@
 <!-- <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script> -->
 
-<script src="assets/js/abi.js"></script>
-<link rel="icon" type="image/png" href="assets/img/headEN.png"/>
+<!-- <script src="assets/js/abi.js"></script> -->
+<link rel="icon" type="image/png" href="https://polarbearcoin.com/wp-content/uploads/2018/06/POLARCOIN.png"/>
 <link rel="stylesheet" href="assets/css/style.css">
 
-<title>Cactus Game - Coin Flips</title>
+<title>Polarbear Copy trade</title>
 </head>
 <body>
-  <div class="divClaim"></div>
-  <br>
-  <div class="d-flex justify-content-between">
-    <div>
-      <small class="text-white">&nbsp;CAC :</small><button id='div-balance' class="btn btn-dark btn-sm text-success"></button> 
-      <button class="btn btn-success btn-sm" onclick="window.location.reload();"><i class="fas fa-sync-alt"></i></button>
-    </div>
-    
-    <div>
-      <span id="textAccount" class="text-white">Acc.</span> : <small id='wlletAccount'><button class="btn btn-success btn-sm" onclick="onClickConnect();">Connect Metamask</button></small>
-    </div>
-  </div>
-      <div class="container">
-        <div class="row"></div>
-        <div class="row">
-          <div class="col-12 col-md-12">
-            <div class='coin-flip'>
-              <!-- The tail starts out hidden; we don't want to wait until CSS rule evaluation to hide this image -->
-              <div id='coin-tails' style='display:none'>
-                <img src='./assets/img/tailTH.png' id="imgCoinFlipsT" width="140">
-              </div>
-              <div id='coin-heads'>
-                <img src='./assets/img/headTH.png' id="imgCoinFlipsH" width="140">
-              </div>
-            </div>
-            
+<br><br>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12 col-md-12">
+          <div class="text-center">
+            <img src="https://polarbearcoin.com/wp-content/uploads/2018/06/POLARCOIN.png" height="150">
+            <h1 class="text-light"><strong class="text-warning">PolarbearX</strong> Crypto <span style="color: yellow;">Copytrade</span></h1>
           </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <iframe src="https://lunarcrush.com/widgets/news?symbol=BTC&interval=1 Week&animation=false&theme=dark" id="news-articles" frameBorder="0" border="0" cellspacing="0" scrolling="yes" style="width: 100%; height: 450px;"></iframe>
+      </div>
+      <div class="col-12 col-md-6">
+        <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+        {
+        "width": "100%",
+        "height": 460,
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "locale": "uk",
+        "importanceFilter": "0,1"
+      }
+        </script>
+      </div>
+      <!-- TradingView Widget END -->
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-4 col-xl-3">
+        <ul class="list-group" id="tokenCard">
+          <li class="list-group-item bg-light">
+            <div class="d-flex justify-content-between">
+              <strong class="text-center">Assets</strong>
+              <strong class="text-center">Price</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-8 col-xl-9">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div id="tradingview_8c3f4"></div>
+          <hr>
         </div>
-        <div class="row">
-          <div class="col-12 col-md-12" id='controls'>
-            <br>
-              <!-- ============================== -->
-              <div class="text-white">
-                <br><br>
-                <hr>
-                <span id='div-result'></span>
-                <div class="text-white">
-                  <span id="textPrize">Prize</span> : <span id='div-reward' class="text-warning">0</span> CAC
-                  <a class="btn btn-outline-warning btn-sm" id="btnClaimReward" onclick="claimReward()">Claim</a>
-                </div>
-                <hr>
-                <!-- Button Unlock to play -->
-                <button class="btn btn-warning btn-lg" onclick="addAllowance()" id="iconLock"><i class="fas fa-lock"></i> Unlock to play game.</button>
-                <!-- section game control code start -->
-                <section id="gameControl" style="display: none;">
-                  <p>Bet CAC <input id="inputMoney" type="number" style="width: 125px;" value="100"></p>
-                  <p>
-                    <a class="btn btn-warning btn-sm" onclick="resetBetting();">0</a>
-                    <a class="btn btn-success btn-sm" onclick="addBetting(100);">+100</a>
-                    <a class="btn btn-success btn-sm" onclick="addBetting(1000);">+1000</a>
-                    <a class="btn btn-success btn-sm" onclick="addBetting(10000);">+10000</a>
-                  </p>
-                  <p>
-                    <a class="btn btn-warning btn-sm" onclick="resetBetting();">0</a>
-                    <a class="btn btn-danger btn-sm" onclick="addBetting(-100);">-100</a>
-                    <a class="btn btn-danger btn-sm" onclick="addBetting(-1000);">-1000</a>
-                    <a class="btn btn-danger btn-sm" onclick="addBetting(-10000);">-10000</a>
-                  <div>
-                    <!-- <button class="btn btn-primary" id='btn-heads' onclick="flip('heads')">< Heads</button>
-                    <button class="btn btn-danger" id='btn-tails' onclick="flip('tails')">Tails ></button> -->
-                    <!--
-                      <img src='./assets/img/headTH.png' width="100" id='btn-heads' onclick="flip('heads')" style="cursor: pointer;">
-                      <img src='./assets/img/tailTH.png' width="100" id='btn-tails' onclick="flip('tails')" style="cursor: pointer;">
-                    -->
-                    <img src='./assets/img/headTH.png' width="100" id='btn-heads' onclick="playerBet('heads')" style="cursor: pointer;">
-                    <img src='./assets/img/tailTH.png' width="100" id='btn-tails' onclick="playerBet('tails')" style="cursor: pointer;">
-                  </div>
-                  </div>
-                 </section>
-                 <h1 class="text-warning" id="waitBetting">กรุณารอสักครู่....</h1>
-                <!-- section game control code end -->
-                <hr>
-               
-              
-              <span id='div-debuginfo'></span>
-              <div class="d-flex justify-content-center">
-                <a href="https://cactusswap.finance/" class="btn btn-primary btn-sm" style="margin-right: 25px;"><i class="fas fa-home"></i> Home</a>
-                <div>
-                  <span class="btn btn-info btn-sm" id="btnLangTH">TH</span>
-                  <span class="btn btn-outline-info btn-sm" id="btnLangEN">EN</span>
-                </div>
-              </div>
-              <br>
-            <!-- ============================== -->
+        <!-- TradingView Widget END -->
+        <div class="d-flex justify-content-center" id="btnAction">
+          <div class="bg-dark" style="width: 100%; border: 3px solid #333; padding-top: 25px; padding-bottom: 25px; padding: 25px; border-radius: 15px;">
+            <small class="text-light">Fund to action.</small>
+            <p>
+              <select class="form-control" id="fundId" style="text-align-last:center;">
+                <option value="1" selected>PolarbearX Fund01</option>>
+                <option value="2">PolarbearX Fund02</option>>
+                <option value="3">PolarbearX Fund03</option>>
+              </select>
+            </p>
+            <small class="text-light">Assets.</small>
+            <p><select class="form-control" id="assetLists" style="text-align-last:center;"></select></p>
+            <small class="text-light">Amount.</small>
+            <p><input type="number" class="form-control" value="" min=0.01 step=0.01></p>
+            <p><button class="btn btn-success btn-lg w-100">Invest</button></p>
+          </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <hr>
+ 
+  <section id="tradingLogs">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card bg-dark">
+            <div class="card-body d-flex justify-content-between">
+              <span>
+                <button class="btn btn-secondary btn-md" id="btnLogsTrading" onclick="_logsTrading();">Trading</button>
+                <button class="btn btn-light btn-sm" id="btnLogsHistory" onclick="_logsHistory();">History</button>
+              </span>
+              <span class="text-warning" id="metamaskAccount"></span>
+            </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-12 col-md-12 col-xl-12">
+              
+              <div class="table-responsive">
+                <table class="table table-striped bg-dark text-light">
+                  <thead>
+                    <tr class="text-center">
+                      <th>Date Time</th>
+                      <th>Symbol</th>
+                      <th>Type</th>
+                      <th>Open Price</th>
+                      <th>Amount (USDT)</th>
+                      <th>P/L</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
-      <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-      <script src="assets/js/web3Provider.js"></script>
-      <script src="assets/js/coinflip.js"></script>
-      <script src="assets/js/translation/TH.js"></script>
-      <script src="assets/js/translation/EN.js"></script>
-      <script src="assets/js/translation/index.js"></script>
+                    <tr class="text-center" id="logsTrading">
+                      <td scope="row"><small>2021-08-17 01:00:05</small></td>
+                      <td><small>BTC</small></td>
+                      <td><small>Investing</small></td>
+                      <td><small>4365.5907</small></td>
+                      <td><small>100</small></td>
+                      <td>
+                        <small class="text-success">10 ( 10% )</small>
+                        <span class="badge badge-danger" title="Close">X</span>
+                      </td>
+                    </tr>
+
+                    <!-- History -->
+                    <tr class="text-center bg-secondary" style="display: none;" id="logsHistory">
+                      <td scope="row"><small>2021-08-17 01:00:05</small></td>
+                      <td><small>BNB</small></td>
+                      <td><small>Close</small></td>
+                      <td><small>500</small></td>
+                      <td><small>200</small></td>
+                      <td>
+                        <small>20 ( 10% )</small>
+                        <span class="badge badge-success">close</span>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section class="footer">
+    <br><br>
+  </section>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="assets/js/web3Provider.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="assets/js/copytrade.js"></script>
+  <script>
+    /*
+    * @dev. Load Crypto Assets
+    *
+    */
+    getAssets("ETHUSDT");
+    getAssets("XRPUSDT");
+    getAssets("LTCUSDT");
+    getAssets("BNBUSDT");
+    getAssets("CAKEUSDT");
+    getAssets("UNIUSDT");
+    getAssets("ADAUSDT");
+    getAssets("DOGEUSDT");
+    getAssets("COMPUSDT");
+    getAssets("AVAUSDT");
+    
+  </script>
       
 </body>
 </html>
