@@ -81,7 +81,7 @@ const getAssets = (symbol) => {
     let percentChange = document.querySelector("#percentChange" + symbol);
 
     fetch("https://api.binance.com/api/v3/ticker/24hr?symbol=" + symbol)
-      .then(async (response) => {
+      .then((response) => {
         return response.json();
       })
       .then((data) => {
@@ -104,7 +104,7 @@ const getAssets = (symbol) => {
           percentChange.innerHTML = percentChange24 + " %";
         }
       });
-  }, 1000);
+  }, 5000);
 };
 
 
