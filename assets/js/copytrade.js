@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
         "allow_symbol_change": true,
         "container_id": "tradingview_8c3f4"
       }
-        );
+    );
 });
 
 let logsTrading = document.querySelector("#logsTrading");

@@ -1,10 +1,10 @@
 {
-  "short_name": "CactusCoinFlip",
-  "name": "CactusCoinFlip",
-  "description": "Cactus Game - Coin Flip",
+  "short_name": "PolarBearX Copytrade",
+  "name": "PolarBearX Copytrade",
+  "description": "PolarBearX Copytrade",
   "icons": [
     {
-      "src": "assets/img/headTH.png",
+      "src": "assets/img/POLARCOIN.png",
       "type": "image/x-icon",
       "sizes": "256x256"
     }
