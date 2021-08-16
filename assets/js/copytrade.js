@@ -104,7 +104,7 @@ const getAssets = (symbol) => {
           percentChange.innerHTML = percentChange24 + " %";
         }
       });
-  }, 500);
+  }, 1000);
 };
 
 
