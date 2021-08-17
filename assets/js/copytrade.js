@@ -3,7 +3,8 @@
 */
 window.addEventListener("load", () => {
     // Load Crypto list
-    $("#tradingviewCryptoList").load("cryptoListFromTradingviews.html");
+    $(".navbar").load("components/header.html");
+    $("#tradingviewCryptoList").load("components/cryptoListFromTradingviews.html");
 
 
     new TradingView.widget(

@@ -4,7 +4,7 @@
   "description": "PolarBearX Copytrade",
   "icons": [
     {
-      "src": "assets/img/POLARCOIN.png",
+      "src": "assets/img/PBX.gif",
       "type": "image/x-icon",
       "sizes": "256x256"
     }
@@ -12,5 +12,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#8f6B29"
 }
