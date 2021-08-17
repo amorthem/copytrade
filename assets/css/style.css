@@ -10,6 +10,11 @@ body {
     background-size: cover;
   }
 
+  .goldenBack{
+    background: -webkit-linear-gradient(left, #8f6B29, #FDE08D, #DF9F28);
+	  background: linear-gradient(left, #8f6B29, #FDE08D, #DF9F28);
+  }
+
   input{
     text-align: center;
     border-radius: 5px;
