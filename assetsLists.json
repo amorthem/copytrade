@@ -1,0 +1,182 @@
+{
+  "tokens": [
+    {
+      "assetsId": "1",
+      "symbol": "BNB",
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.svg"
+    },
+    {
+      "assetsId": "2",
+      "symbol": "CAKE",
+      "address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.svg"
+    },
+    {
+      "assetsId": "3",
+      "symbol": "BUSD",
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.svg"
+    },
+    {
+      "assetsId": "4",
+      "symbol": "LINK",
+      "address": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd.svg"
+    },
+    {
+      "assetsId": "5",
+      "symbol": "BTC",
+      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.svg"
+    },
+    {
+      "assetsId": "6",
+      "symbol": "ETH",
+      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.svg"
+    },
+    {
+      "assetsId": "7",
+      "symbol": "XRP",
+      "address": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe.svg"
+    },
+    {
+      "assetsId": "8",
+      "symbol": "LTC",
+      "address": "0x4338665cbb7b2485a8855a139b75d5e34ab0db94",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x4338665cbb7b2485a8855a139b75d5e34ab0db94.svg"
+    },
+    {
+      "assetsId": "9",
+      "symbol": "UNI",
+      "address": "0xbf5140a22578168fd562dccf235e5d43a02ce9b1",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.svg"
+    },
+    {
+      "assetsId": "10",
+      "symbol": "ADA",
+      "address": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47.svg"
+    },
+    {
+      "assetsId": "11",
+      "symbol": "COMP",
+      "address": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x52ce071bd9b1c4b00a0b92d298c512478cad67e8.svg"
+    },
+    {
+      "assetsId": "12",
+      "symbol": "DOT",
+      "address": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x7083609fce4d1d8dc0c979aab8c869ea2c873402.svg"
+    },
+
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    },
+    {
+      "assetsId": "",
+      "symbol": "",
+      "address": "",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": ""
+    }
+
+  ]
+}
