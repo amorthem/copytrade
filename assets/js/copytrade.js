@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
 *
 */
 const priceAPI = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&symbols=";
-const assetsStorage = "https://192.168.1.43/0_Copytrade/assetsLists.json"; // Pancake Default Token list = https://gateway.pinata.cloud/ipfs/QmdKy1K5TMzSHncLzUXUJdvKi1tHRmJocDRfmCXxW5mshS
+const assetsStorage = "https://amorthem.github.io/copytrade/assetsLists.json"; //"https://192.168.1.43/0_Copytrade/assetsLists.json"; // Pancake Default Token list = https://gateway.pinata.cloud/ipfs/QmdKy1K5TMzSHncLzUXUJdvKi1tHRmJocDRfmCXxW5mshS
 let price_change_24h;
 let logsTrading = document.querySelector("#logsTrading");
 let logsHistory = document.querySelector("#logsHistory");
