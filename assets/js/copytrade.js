@@ -144,7 +144,7 @@ const getAssetsStorage = () => {
  */
 const reloadComponents = (symbol) => {
   document.querySelector("#assetLists").value = symbol;
-  document.querySelector("#news-articles").setAttribute("src", `https://lunarcrush.com/widgets/news?symbol=${symbol}&interval=1 Week&animation=false&theme=dark`);
+  document.querySelector("#news-articles").setAttribute("src", `https://lunarcrush.com/widgets/news?symbol=${symbol}&interval=1 Week&animation=false&theme=light`);
 
   new TradingView.widget({
     width: "100%",

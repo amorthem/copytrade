@@ -9,6 +9,10 @@ body {
     background: url('https://cryptocurrencykb.com/wp-content/uploads/2019/05/Cryptocurrency-Wallpaper-7-1024x683.jpg');
     background-size: cover;
   }
+  .btnBuy:hover{
+	  background: linear-gradient(left, #8f6B29, #FDE08D, #DF9F28);
+    box-shadow: #8f6B29 0px 5px 15px;
+  }
 
   .goldenBack{
     background: -webkit-linear-gradient(left, #8f6B29, #FDE08D, #DF9F28);

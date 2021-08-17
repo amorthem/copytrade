@@ -71,15 +71,22 @@
         </ul>
       </div>
       <div class="col-md-8 col-xl-9">
-        <!-- TradingView Widget BEGIN -->
-        <div class="tradingview-widget-container">
-          <div id="tradingview_8c3f4"></div>
+        <div class="card">
+          <div class="card-header goldenBack">
+            <strong class="text-light">Crypto Chart</strong>
+          </div>
+          <div class="card-body">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div id="tradingview_8c3f4"></div>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
         </div>
-        <!-- TradingView Widget END -->
 
         <div class="card cardBuy">
           <div class="card-header goldenBack">
-            <strong>PolarbearX Fund01 ( $ 500 )</strong>
+            <strong class="text-light">PolarbearX Fund01 ( $ 500 )</strong>
           </div>
           <div class="card-body">
             <small class="text-light">Fund to action.</small>
@@ -105,8 +112,8 @@
             </p>
             <p class="text-center">
               <button 
-                class="btn btn-warning btn-lg w-50" 
-                style="padding: 15px; font-size: 24px; font-weight: bold"
+                class="btn btn-warning btn-lg w-50 goldenBack btnBuy" 
+                style="padding: 15px; font-size: 24px; font-weight: bold; border: none;"
                 data-toggle="modal" data-target="#modalInvest"
                 >
               BUY / Invest</button>
@@ -127,8 +134,8 @@
           <div class="card goldenBack">
             <div class="card-body d-flex justify-content-between">
               <span>
-                <button class="btn btn-secondary btn-md" id="btnLogsTrading" onclick="_logsTrading();">Trading</button>
-                <button class="btn btn-light btn-sm" id="btnLogsHistory" onclick="_logsHistory();">History</button>
+                <button class="btn btn-warning btn-md" id="btnLogsTrading" onclick="_logsTrading();">Trading</button>
+                <button class="btn btn-secondary btn-sm" id="btnLogsHistory" onclick="_logsHistory();">History</button>
               </span>
               <span>
                 Metamask : <span style="font-weight: bold;" id="metamaskAccount"></span>
@@ -141,7 +148,7 @@
         <div class="col-12 col-md-12 col-xl-12">
               
               <div class="table-responsive">
-                <table class="table table-striped bg-light">
+                <table class="table table-striped">
                   <thead>
                     <tr class="text-center">
                       <th>Date Time</th>
@@ -154,7 +161,7 @@
                   </thead>
                   <tbody>
 
-                    <tr class="text-center" id="logsTrading">
+                    <tr class="bg-light text-center" id="logsTrading">
                       <td scope="row"><small>2021-08-17 01:00:05</small></td>
                       <td><small>BTC</small></td>
                       <td><small>Investing</small></td>
@@ -167,7 +174,7 @@
                     </tr>
 
                     <!-- History -->
-                    <tr class="text-center" style="display: none;" id="logsHistory">
+                    <tr class="bg-light text-center" style="display: none;" id="logsHistory">
                       <td scope="row"><small>2021-08-17 01:00:05</small></td>
                       <td><small>BNB</small></td>
                       <td><small>Close</small></td>
