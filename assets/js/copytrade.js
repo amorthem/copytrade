@@ -2,11 +2,15 @@
 * On page load
 */
 window.addEventListener("load", () => {
+    // Load Crypto list
+    $("#tradingviewCryptoList").load("cryptoListFromTradingviews.html");
+
+
     new TradingView.widget(
         {
         "width": "100%",
         "height": 615,
-        "symbol": "BINANCE:BTCUSDT",
+        "symbol": "BINANCE:BNBUSDT",
         "interval": "60",
         "timezone": "Etc/UTC",
         "theme": "light",
@@ -59,7 +63,7 @@ document.querySelector("#tokenCard").innerHTML += `
         <div class="d-flex justify-content-between" id="listItem${symbol}">
           <strong><span id="symbol${symbol}">${symbol}</span></strong>
           <div>
-            <span id="price${symbol}"></span>
+            <span id="price${symbol}" class="text-dark"></span>
             <small id="priceColor${symbol}">( <i class="fas fa-caret-down" id="priceUpDown${symbol}"></i> <span id="percentChange${symbol}"></span>)</small>
           </div>
         </div>
@@ -71,10 +75,10 @@ document.querySelector("#tokenCard").innerHTML += `
 * @function Update Data price realtime
 */
 
-    const getPrice = (symbol, timeRequest) => {
+    const getPrice = async (symbol) => {
+        if(symbol === "") throw  new Error("Symbol NULL");
         let {prices, price, percentChange24, p0, p1} = 0;
         let {listGroupItem, txtPrice, priceColor, priceUpDown, percentChange} = "";
-    setInterval( async () => {
         const response = await fetch("https://api.binance.com/api/v3/ticker/24hr?symbol=" + symbol + "USDT");
         const data = await response.json();
 
@@ -93,8 +97,10 @@ document.querySelector("#tokenCard").innerHTML += `
         percentChange.innerHTML = percentChange24 + " %";
         
         parseFloat(prices) >= parseFloat(txtPrice.innerHTML)
-            ? txtPrice.setAttribute("class", "text-success")
-            : txtPrice.setAttribute("class", "text-danger")
+            ? listGroupItem.setAttribute("class", "list-group-item bg-success")
+            : listGroupItem.setAttribute("class", "list-group-item bg-danger text-light")
+            // ? txtPrice.setAttribute("class", "text-success")
+            // : txtPrice.setAttribute("class", "text-danger")
 
         parseFloat(percentChange24) >= 0
             ? priceUpDown.setAttribute("class", "fas fa-caret-up")
@@ -103,38 +109,26 @@ document.querySelector("#tokenCard").innerHTML += `
         parseFloat(percentChange24) >= 0
             ? priceColor.setAttribute("class", "text-success")
             : priceColor.setAttribute("class", "text-danger")
-      }, timeRequest);
   }
 
 
 /*
-* @function Load Assets
+* @function Load Assets And Token list
 */
+
 const getAssets = async () => {
     const response = await fetch(assetsStorage);
     const data = await response.json();
     data.tokens.forEach(tokenId => {
-        //getAssets(tokenId.symbol, tokenId.address);
-        addAssetsWatchList(tokenId.symbol);
-        loadAssetsImg(tokenId.symbol, tokenId.logoURI);
-        document.querySelector("#assetLists").innerHTML += `<option value="${tokenId.symbol}">${tokenId.symbol}</option>`;
-        getPrice(tokenId.symbol, 3000);
+        //addAssetsWatchList(tokenId.symbol);
+        //loadAssetsImg(tokenId.symbol, tokenId.logoURI);
+        document.querySelector("#selectSymbolList").innerHTML += `
+        <span class="dropdown-item" onclick="selectSymbolList('${tokenId.symbol}', '${tokenId.address}');" >
+          <img src="https://pancakeswap.finance/images/tokens/${tokenId.address}.svg" height="35"> <strong>${tokenId.symbol}</strong>
+        </span>
+        `;
     })
-
-    
 }
-
-
-/*
-* @function Load Assets And Update Price realtime
-*/
-const getAssetsStorage = () => {
-      //getAssetsTotal();
-    /*assetsStorage.forEach((_assetsStorage) => {
-      getPrice(_assetsStorage.symbol, 1000);
-    })*/
-  }
-
 
 /*
  * @function reload components
@@ -143,13 +137,12 @@ const getAssetsStorage = () => {
  *   - Assets to Invest
  */
 const reloadComponents = (symbol) => {
-  document.querySelector("#assetLists").value = symbol;
   document.querySelector("#news-articles").setAttribute("src", `https://lunarcrush.com/widgets/news?symbol=${symbol}&interval=1 Week&animation=false&theme=light`);
 
   new TradingView.widget({
     width: "100%",
     height: 620,
-    symbol: "BINANCE:" + symbol + "usdt",
+    symbol: "BINANCE:" + symbol + "USDT",
     interval: "60",
     timezone: "Etc/UTC",
     theme: "light",
@@ -171,4 +164,12 @@ const _logsTrading = () => {
 const _logsHistory = () => {
     logsTrading.setAttribute("style", "display: none;");
     logsHistory.setAttribute("style", "display: block-inline;");
+}
+
+const selectSymbolList = (symbol, symbolLogo) => {
+    reloadComponents(symbol);
+    document.querySelector("#selectSymbolValue").value = symbol;
+    document.querySelector("#chartSymbol").innerHTML = symbol;
+    document.querySelector("#symbolSelectDefultimg").setAttribute("src", `https://pancakeswap.finance/images/tokens/${symbolLogo}.svg`);
+    document.querySelector("#symbolSelectDefult").innerHTML = symbol;
 }

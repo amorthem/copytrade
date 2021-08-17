@@ -2,6 +2,14 @@
   "tokens": [
     {
       "assetsId": "1",
+      "symbol": "BUSD",
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.svg"
+    },
+    {
+      "assetsId": "2",
       "symbol": "BNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
       "chainId": 56,
@@ -9,20 +17,12 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.svg"
     },
     {
-      "assetsId": "2",
+      "assetsId": "3",
       "symbol": "CAKE",
       "address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.svg"
-    },
-    {
-      "assetsId": "3",
-      "symbol": "BUSD",
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.svg"
     },
     {
       "assetsId": "4",
@@ -95,88 +95,6 @@
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x7083609fce4d1d8dc0c979aab8c869ea2c873402.svg"
-    },
-
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
-    },
-    {
-      "assetsId": "",
-      "symbol": "",
-      "address": "",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": ""
     }
-
   ]
 }
