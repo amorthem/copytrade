@@ -60,52 +60,64 @@ const loadAssetsImg = async (symbols) => {
   const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&symbols=" +symbolPair1(symbols).toLowerCase());
   const tokenData = await response.json();
 
-  const response2 = await fetch("https://tokens.venus.io/");
-  const tokenData2 = await response2.json();
-  
-   
   document.querySelector("#symbol" + symbols).innerHTML = `<img src="${tokenData[0].image}" height="30" class="rounded-circle"> &nbsp;&nbsp;${symbolPair1(symbols)}`;
 };
+
 /*
-* @function Load Assets
+* @function Preload Load Assets
 */
-const getAssets = (symbol) => {
+const getAssets = async (symbol) => {
   addAssetsWatchList(symbol);
   loadAssetsImg(symbol);
   document.querySelector("#assetLists").innerHTML += `<option value="${symbol}">${symbol}</option>`;
 
-  setInterval(() => {
-    let txtPrice = document.querySelector("#price" + symbol);
-    let priceColor = document.querySelector("#priceColor" + symbol);
-    let priceUpDown = document.querySelector("#priceUpDown" + symbol);
-    let percentChange = document.querySelector("#percentChange" + symbol);
+  const response = await fetch("https://api.binance.com/api/v3/ticker/24hr?symbol=" + symbol);
+  const data = await response.json();
+}
 
-    fetch("https://api.binance.com/api/v3/ticker/24hr?symbol=" + symbol)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        //console.log(data.price);
-        let prices = data.lastPrice;
-        let price = parseFloat(prices).toFixed(4);
-        let percentChange24 = data.priceChangePercent;
-        let p0 = txtPrice.innerHTML.toLocaleString();
-        let p1 = price.toLocaleString();
+  const getPrice = (symbol) => {
+        let {prices, price, percentChange24, p0, p1} = 0;
+        let {txtPrice, priceColor, priceUpDown, percentChange} = "";
+    setInterval( async () => {
+        const response = await fetch("https://api.binance.com/api/v3/ticker/24hr?symbol=" + symbol);
+        const data = await response.json();
 
-        if (p1 >= p0) {
-          priceColor.setAttribute("class", "text-success");
-          priceUpDown.setAttribute("class", "fas fa-caret-up");
-          txtPrice.innerHTML = price;
-          percentChange.innerHTML = percentChange24 + " %";
-        } else {
-          priceColor.setAttribute("class", "text-danger");
-          priceUpDown.setAttribute("class", "fas fa-caret-down");
-          txtPrice.innerHTML = price;
-          percentChange.innerHTML = percentChange24 + " %";
-        }
-      });
-  }, 5000);
-};
+        txtPrice = document.querySelector("#price" + symbol);
+        priceColor = document.querySelector("#priceColor" + symbol);
+        priceUpDown = document.querySelector("#priceUpDown" + symbol);
+        percentChange = document.querySelector("#percentChange" + symbol);
+        
+        prices = data.lastPrice;
+        price = parseFloat(prices).toFixed(4);
+        percentChange24 = data.priceChangePercent;
+        
+
+        if ( parseFloat(prices) >= parseFloat(Number(txtPrice.innerHTML)) ) {
+            priceColor.setAttribute("class", "text-success");
+            priceUpDown.setAttribute("class", "fas fa-caret-up");
+            txtPrice.innerHTML = price;
+            percentChange.innerHTML = percentChange24 + " %";
+          } else {
+            priceColor.setAttribute("class", "text-danger");
+            priceUpDown.setAttribute("class", "fas fa-caret-down");
+            txtPrice.innerHTML = price;
+            percentChange.innerHTML = percentChange24 + " %";
+          }
+      }, 5000);
+  }
+
+/*
+* @function Load Assets And Update Price realtime
+*/
+const getAssetsStorage = (symbol) => {
+      
+    assetsStorage.forEach((_assetsStorage) => {
+      getAssets(_assetsStorage);
+    })
+    assetsStorage.forEach((_assetsStorage) => {
+      getPrice(_assetsStorage);
+    })
+  }
 
 
 /*
@@ -137,14 +149,10 @@ const reloadComponents = (symbol) => {
 
 
 const _logsTrading = () => {
-    // document.querySelector("btnLogsTrading").setAttribute("class", "btn btn-secondary btn-md");
-    // document.querySelector("btnLogsHistory").setAttribute("class", "btn btn-light btn-sm");
     logsTrading.setAttribute("style", "display: block-inline;");
     logsHistory.setAttribute("style", "display: none;");
 }
 const _logsHistory = () => {
-    //document.querySelector("btnLogsHistory").setAttribute("class", "btn btn-light btn-sm");
-    //document.querySelector("btnLogsHistory").setAttribute("class", "btn btn-secondary btn-md");
     logsTrading.setAttribute("style", "display: none;");
     logsHistory.setAttribute("style", "display: block-inline;");
 }
