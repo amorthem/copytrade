@@ -104,7 +104,14 @@
               <button class="btn btn-dark btn-md">75%</button>&nbsp;
               <button class="btn btn-dark btn-md">100%</button>
             </p>
-            <p class="text-center"><button class="btn btn-warning btn-lg w-50" style="padding: 15px; font-size: 24px; font-weight: bold">BUY / Invest</button></p>
+            <p class="text-center">
+              <button 
+                class="btn btn-warning btn-lg w-50" 
+                style="padding: 15px; font-size: 24px; font-weight: bold"
+                data-toggle="modal" data-target="#modalInvest"
+                >
+              BUY / Invest</button>
+            </p>
           </div>
         </div>
 
@@ -187,7 +194,37 @@
     </div>
   </section>
 
-
+<!-- The Modal -->
+  <div class="modal fade" id="modalInvest">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header text-center">
+          <h4 class="modal-title">Invest Assets</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body text-center">
+          <p><img src="https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.svg" height="50"> <h5>amount(n)</h5></p>
+          <p>
+          ||<br>
+          ||<br>
+          V
+          </p>
+          <p><img src="https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.svg" height="50"> <h5>amount(n)</h5></p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="alert('OK');">Confirm</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <script src="assets/js/web3Provider.js"></script>
